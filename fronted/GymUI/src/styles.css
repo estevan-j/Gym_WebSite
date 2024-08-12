@@ -86,7 +86,7 @@ form div {
 
 
 
-.btn-submit:disabled {
+.btn-submit:disabled, #btn-login:disabled {
     background-color: grey;
     cursor: not-allowed;
     opacity: 0.5;
