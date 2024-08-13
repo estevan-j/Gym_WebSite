@@ -132,17 +132,19 @@
 /* Sección de Servicios */
 .landing-page .services-section {
     padding: 50px 20px;
-    display: flex; /* Cambio para centrar la sección */
-    justify-content: center; /* Cambio para centrar la sección */
+    width: 100%; /* Asegura que la sección ocupe todo el ancho */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
+/* Grilla de servicios */
 .landing-page .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable a pantallas pequeñas */
     gap: 20px;
-    max-width: 1200px; /* Limitar ancho máximo */
-    margin: 0 auto; /* Centrar el contenedor */
-    text-align: center; /* Asegurar que el contenido esté centrado */
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra la grilla */
+    text-align: center; /* Centra el contenido dentro de cada elemento */
+    box-sizing: border-box; /* Para asegurar que el padding no exceda el ancho */
 }
 
 .landing-page .service {
@@ -154,6 +156,13 @@
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .landing-page .services-grid {
+        grid-template-columns: 1fr; /* Pone cada elemento en una fila separada */
+    }
 }
 
 .landing-page .service:hover {
