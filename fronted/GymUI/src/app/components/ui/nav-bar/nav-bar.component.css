@@ -1,11 +1,10 @@
 #navbar{
     width: 25vw;
-    height: 100vh;
-    max-height: 100vh;
+    min-height: 100%;
     background-color: var(--navbar-color);
     padding: 15px 0px;
     display: flex;
     flex-direction: column;
     gap: 18px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }

@@ -9,7 +9,6 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [TabletDeleteComponent, SearchBarComponent, NgIf],
   templateUrl: './eliminar-entrenador.component.html',
-  styleUrl: './eliminar-entrenador.component.css'
 })
 export class EliminarEntrenadorComponent {
   datos: any = [];
@@ -59,7 +58,7 @@ export class EliminarEntrenadorComponent {
     
     this._trainerService.deleteEntrenador(cliente.cedula).subscribe(
       (response) => {
-        this.successMessage = 'Cliente eliminado correctamente';
+        this.successMessage = 'Entrenador eliminado correctamente';
         this.hideMessagesAfterTimeout();
         this.datos = this.datos.filter(
           (client: any) => {
@@ -71,7 +70,7 @@ export class EliminarEntrenadorComponent {
         
       },
       (error) => {
-        this.errorMessage = 'Error al eliminar el cliente' + error.message;
+        this.errorMessage = 'Error al eliminar el Entrenamdor' + error.message;
         this.hideMessagesAfterTimeout();
       }
     );

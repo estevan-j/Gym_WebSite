@@ -17,7 +17,7 @@ export function formatContent(column: string, contenido: any): any {
         return contenido.tipoMembresia;
     }
     // si es estado de membresia true=Activa, false=Inactiva
-    if (column === 'estadoMembresia') {
+    if (column === 'estadoMembresia'|| column === 'activo') {
         return contenido ? 'Activa' : 'Inactiva';
     }
     // si es entrenador debe darme el nombre completo

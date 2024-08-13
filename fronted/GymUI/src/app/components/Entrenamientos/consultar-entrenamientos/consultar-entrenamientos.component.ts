@@ -8,7 +8,6 @@ import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
   standalone: true,
   imports: [TabletComponent, SearchBarComponent],
   templateUrl: './consultar-entrenamientos.component.html',
-  styleUrl: './consultar-entrenamientos.component.css',
 })
 export class ConsultarEntrenamientosComponent implements OnInit {
   datos: any = [];

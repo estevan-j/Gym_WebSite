@@ -13,7 +13,6 @@ import { EntrenadorService } from '../../../../services/Entrenador.service';
   standalone: true,
   imports: [NgFor, NgIf, ReactiveFormsModule, NgClass],
   templateUrl: './registrar-entrenador.component.html',
-  styleUrl: './registrar-entrenador.component.css',
 })
 export class RegistrarEntrenadorComponent {
   formulario!: FormGroup;

@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { EntrenadorService } from '../../../../services/Entrenador.service';
 import { TabletUpdateComponent } from '../../ui/tablet-update/tablet-update.component';
 import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
@@ -8,9 +15,14 @@ import { NgClass, NgIf } from '@angular/common';
 @Component({
   selector: 'app-actualizar-entrenador',
   standalone: true,
-  imports: [ReactiveFormsModule ,TabletUpdateComponent, SearchBarComponent, NgClass, NgIf],
+  imports: [
+    ReactiveFormsModule,
+    TabletUpdateComponent,
+    SearchBarComponent,
+    NgClass,
+    NgIf,
+  ],
   templateUrl: './actualizar-entrenador.component.html',
-  styleUrl: './actualizar-entrenador.component.css'
 })
 export class ActualizarEntrenadorComponent {
   formulario!: FormGroup;
@@ -22,7 +34,7 @@ export class ActualizarEntrenadorComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _entrenadorService: EntrenadorService
+    private _entrenadorService: EntrenadorService,
   ) {
     this.initializeForm();
   }
@@ -33,12 +45,18 @@ export class ActualizarEntrenadorComponent {
         direccion: [''],
         telefono: ['', Validators.pattern('^[0-9]*$')],
         correo: ['', [Validators.email]],
+        activo: [''],
+        especialidad: [''],
       },
       { validators: this.atLeastOneFieldValidator() }
     );
   }
 
   ngOnInit(): void {
+    this.loadEntrenadores();
+  }
+
+  private loadEntrenadores(): void {
     this._entrenadorService.getEntrenadores().subscribe(
       (response) => {
         this.datos = response;
@@ -67,12 +85,11 @@ export class ActualizarEntrenadorComponent {
   receiveSearchText(text: string) {
     const searchText = text.trim().toLowerCase();
     if (searchText === '') {
-      this.dataFiltered = [...this.datos]; 
+      this.dataFiltered = [...this.datos];
     } else {
-      const searchPattern = new RegExp(searchText, 'i'); 
-      this.dataFiltered = this.datos.filter(
-        (cliente: any) =>
-          searchPattern.test(cliente.cedula) 
+      const searchPattern = new RegExp(searchText, 'i');
+      this.dataFiltered = this.datos.filter((entrenador: any) =>
+        searchPattern.test(entrenador.cedula)
       );
     }
   }
@@ -83,6 +100,8 @@ export class ActualizarEntrenadorComponent {
       direccion: Object.values(row.direccion).join(', '),
       telefono: row.telefono,
       correo: row.correo,
+      activo: row.activo,
+      especialidad: row.especialidad,
     });
   }
 
@@ -97,23 +116,25 @@ export class ActualizarEntrenadorComponent {
           callePrincipal: '',
           calleSecundaria: '',
         },
-        // membresia: {
-        //   idMembresia: this.formulario.value.membresia,
-        // }
+        activo: this.formulario.value.activo || this.currentData.activo,
+        especialidad:
+          this.formulario.value.especialidad || this.currentData.especialidad,
       };
+      delete formData.entrenamientos;
       console.log(formData);
-      
-      this._entrenadorService.crearEntrenador(formData).subscribe(
+
+      this._entrenadorService.actualizarEntrenador(formData).subscribe(
         (response) => {
-          console.log('Datos enviados correctamente', response);
-          this.successMessage = 'Datos enviados correctamente';
+          console.log('Datos Actualizados correctamente', response);
+          this.successMessage = 'Datos Actualizados correctamente';
           this.errorMessage = '';
           this.formulario.reset();
           this.initializeForm();
           this.hideMessagesAfterTimeout();
+          this.loadEntrenadores();
         },
         (error) => {
-          this.errorMessage = 'Error al enviar los datos: ' + error.message;
+          this.errorMessage = 'Error al actualizar los datos: ' + error.message;
           this.successMessage = '';
           this.hideMessagesAfterTimeout();
         }
@@ -122,7 +143,7 @@ export class ActualizarEntrenadorComponent {
       console.error('El formulario no es válido');
       this.errorMessage =
         'El formulario no es válido. Por favor, revise los campos.';
-      this.successMessage = ''; 
+      this.successMessage = '';
       this.hideMessagesAfterTimeout();
     }
   }
@@ -131,7 +152,6 @@ export class ActualizarEntrenadorComponent {
     setTimeout(() => {
       this.successMessage = '';
       this.errorMessage = '';
-    }, 3000); 
+    }, 3000);
   }
-
 }

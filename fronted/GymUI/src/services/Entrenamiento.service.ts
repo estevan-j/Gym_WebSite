@@ -20,7 +20,9 @@ export class EntrenamientoService {
   }
 
   actualizarEntrenamiento(entrenamiento: any): Observable<any> {
-    return this.httpService.put(`${this.baseUrl}/actualizarEntrenamiento/${entrenamiento.id}`, entrenamiento);
+    let id = entrenamiento.idEntrenamiento;
+    delete entrenamiento.idEntrenamiento;
+    return this.httpService.put(`${this.baseUrl}/actualizarEntrenamiento/${id}`, entrenamiento);
   }
 
   deleteEntrenamiento(id: string): Observable<any> {

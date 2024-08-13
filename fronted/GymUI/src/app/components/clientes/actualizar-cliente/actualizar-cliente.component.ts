@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 import {
   AbstractControl,
@@ -11,6 +11,7 @@ import {
 import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
 import { TabletUpdateComponent } from '../../ui/tablet-update/tablet-update.component';
 import { ClienteService } from '../../../../services/Cliente.service';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Component({
   selector: 'app-actualizar-cliente',
@@ -23,7 +24,6 @@ import { ClienteService } from '../../../../services/Cliente.service';
     SearchBarComponent,
   ],
   templateUrl: './actualizar-cliente.component.html',
-  styleUrl: './actualizar-cliente.component.css',
 })
 export class ActualizarClienteComponent implements OnInit {
   formulario!: FormGroup;
@@ -35,7 +35,8 @@ export class ActualizarClienteComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _clientService: ClienteService
+    private _clientService: ClienteService,
+    private cdr: ChangeDetectorRef
   ) {
     this.initializeForm();
   }
@@ -46,12 +47,17 @@ export class ActualizarClienteComponent implements OnInit {
         direccion: [''],
         telefono: ['', Validators.pattern('^[0-9]*$')],
         correo: ['', [Validators.email]],
+        activo: [''],
       },
       { validators: this.atLeastOneFieldValidator() }
     );
   }
 
   ngOnInit(): void {
+    this.loadClientes();
+  }
+
+  private loadClientes(): void {
     this._clientService.getClientes().subscribe(
       (response) => {
         this.datos = response;
@@ -96,6 +102,7 @@ export class ActualizarClienteComponent implements OnInit {
       direccion: Object.values(row.direccion).join(', '),
       telefono: row.telefono,
       correo: row.correo,
+      activo: row.activo,
     });
   }
 
@@ -110,23 +117,22 @@ export class ActualizarClienteComponent implements OnInit {
           callePrincipal: '',
           calleSecundaria: '',
         },
-        // membresia: {
-        //   idMembresia: this.formulario.value.membresia,
-        // }
+        activo: this.formulario.value.activo || this.currentData.activo,
       };
       console.log(formData);
       
-      this._clientService.crearCliente(formData).subscribe(
+      this._clientService.actualizarCliente(formData).subscribe(
         (response) => {
-          console.log('Datos enviados correctamente', response);
-          this.successMessage = 'Datos enviados correctamente';
+          console.log('Datos Actualizados correctamente', response);
+          this.successMessage = 'Datos Actualizados correctamente';
           this.errorMessage = '';
           this.formulario.reset();
           this.initializeForm();
           this.hideMessagesAfterTimeout();
+          this.loadClientes();
         },
         (error) => {
-          this.errorMessage = 'Error al enviar los datos: ' + error.message;
+          this.errorMessage = 'Error al actualizar los datos: ' + error.message;
           this.successMessage = '';
           this.hideMessagesAfterTimeout();
         }

@@ -9,7 +9,6 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [TabletDeleteComponent, SearchBarComponent, NgIf],
   templateUrl: './eliminar-entrenamientos.component.html',
-  styleUrl: './eliminar-entrenamientos.component.css'
 })
 export class EliminarEntrenamientosComponent {
   datos: any = [];

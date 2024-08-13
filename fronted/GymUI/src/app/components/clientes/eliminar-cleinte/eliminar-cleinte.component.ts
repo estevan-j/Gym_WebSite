@@ -9,7 +9,6 @@ import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
   standalone: true,
   imports: [TabletDeleteComponent, SearchBarComponent, NgIf],
   templateUrl: './eliminar-cleinte.component.html',
-  styleUrl: './eliminar-cleinte.component.css'
 })
 export class EliminarCleinteComponent {
   datos: any = [];

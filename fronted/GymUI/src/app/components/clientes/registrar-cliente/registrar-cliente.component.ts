@@ -10,7 +10,6 @@ import { MembresiaService } from '../../../../services/Membresia.service';
   standalone: true,
   imports: [ReactiveFormsModule, NgClass, NgFor, NgIf],
   templateUrl: './registrar-cliente.component.html',
-  styleUrl: './registrar-cliente.component.css'
 })
 export class RegistrarClienteComponent {
   formulario!: FormGroup;

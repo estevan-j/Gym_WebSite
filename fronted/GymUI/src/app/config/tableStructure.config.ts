@@ -9,7 +9,7 @@ export const TABLE_STRUCTURE: TableStructure[] = [
         columns: ['cedula', 'nombre', 'apellido', 'direccion', 'telefono','correo', 'fechaNacimiento', 'membresia', 'activo']
     }, {
         type: 'entrenadores',
-        columns: ['cedula', 'nombre', 'apellido', 'direccion', 'entrenamientos','especialidad', 'fechaNacimiento']
+        columns: ['cedula', 'nombre', 'apellido', 'direccion', 'entrenamientos','especialidad', 'fechaNacimiento', 'activo']
     }, {
         type: 'membresias',
         columns: ['idMembresia', 'tipoMembresia','estadoMembresia', 'fechaCreacion', 'fechaExpiracion']

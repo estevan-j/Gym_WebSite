@@ -8,7 +8,6 @@ import { TabletComponent } from '../../ui/tablet/tablet.component';
   standalone: true,
   imports: [TabletComponent, SearchBarComponent],
   templateUrl: './consultar-entrenador.component.html',
-  styleUrl: './consultar-entrenador.component.css'
 })
 export class ConsultarEntrenadorComponent implements OnInit {
   datos: any = [];
