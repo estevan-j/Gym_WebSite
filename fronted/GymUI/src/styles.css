@@ -13,6 +13,7 @@
     color: var(--white-color);
 }
 
+
 body{
     width: 100%;
     min-height:100vh;
@@ -163,3 +164,4 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
     flex-direction: column;
     justify-content: center;
 }
+

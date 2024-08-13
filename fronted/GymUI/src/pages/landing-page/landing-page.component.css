@@ -1,11 +1,4 @@
-/* body {
-    font-family: "Space Grotesk", sans-serif;
-    padding: 0;
-
-    color: #fff;
-} */
-
-.header {
+.landing-page .header {
     background-color: #000;
     display: flex;
     justify-content: space-between;
@@ -13,19 +6,19 @@
     border-bottom: 2px solid #444;
 }
 
-.header .logo {
+.landing-page .header .logo {
     font-size: 2em;
     color: #FFD700;
     text-transform: uppercase;
 }
 
-.nav-links {
+.landing-page .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-.nav-links a {
+.landing-page .nav-links a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
@@ -33,11 +26,11 @@
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.landing-page .nav-links a:hover {
     color: #FFD700;
 }
 
-.btn {
+.landing-page .btn {
     background-color: #FFD700;
     color: #000;
     padding: 10px 20px;
@@ -46,13 +39,13 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn:hover {
+.landing-page .btn:hover {
     background-color: #FFA500;
     transform: scale(1.05);
 }
 
 /* Sección Principal */
-.main-section {
+.landing-page .main-section {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -66,7 +59,7 @@
     animation: fadeIn 2s ease;
 }
 
-.main-section .overlay {
+.landing-page .main-section .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -76,33 +69,33 @@
     z-index: 0;
 }
 
-.main-section h1 {
+.landing-page .main-section h1 {
     font-size: 3em;
     text-transform: uppercase;
     margin-bottom: 20px;
     z-index: 1;
 }
 
-.main-section .btn {
+.landing-page .main-section .btn {
     z-index: 1;
 }
 
 /* Estilos para mantener las proporciones */
-img {
+.landing-page img {
     width: 100%;
     height: auto;
     display: block;
 }
 
 /* Galería y texto de Sobre Nosotros */
-.about-section {
+.landing-page .about-section {
     position: relative;
     padding: 50px 20px;
     text-align: center;
     color: #fff;
 }
 
-.about-content {
+.landing-page .about-content {
     z-index: 2;
     position: absolute;
     top: 50%;
@@ -113,14 +106,14 @@ img {
     border-radius: 10px;
 }
 
-.about-carousel {
+.landing-page .about-carousel {
     display: flex;
     overflow: hidden;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-.carousel-slide {
+.landing-page .carousel-slide {
     min-width: 100%;
     height: 400px;
     background-size: cover;
@@ -137,19 +130,22 @@ img {
 }
 
 /* Sección de Servicios */
-.services-section {
+.landing-page .services-section {
     padding: 50px 20px;
-    text-align: flex;
+    display: flex; /* Cambio para centrar la sección */
+    justify-content: center; /* Cambio para centrar la sección */
 }
 
-.services-grid {
+.landing-page .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    align-items: center;
+    max-width: 1200px; /* Limitar ancho máximo */
+    margin: 0 auto; /* Centrar el contenedor */
+    text-align: center; /* Asegurar que el contenido esté centrado */
 }
 
-.service {
+.landing-page .service {
     background-size: cover;
     background-position: center;
     position: relative;
@@ -160,11 +156,11 @@ img {
     transition: transform 0.3s ease;
 }
 
-.service:hover {
+.landing-page .service:hover {
     transform: scale(1.05);
 }
 
-.overlay {
+.landing-page .overlay {
     position: absolute;
     bottom: 0;
     background: rgba(0, 0, 0, 0.7);
@@ -176,18 +172,18 @@ img {
 }
 
 /* Sección de Entrenadores */
-.trainers-section {
+.landing-page .trainers-section {
     padding: 50px 20px;
     text-align: center;
 }
 
-.trainers-grid {
+.landing-page .trainers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.trainer {
+.landing-page .trainer {
     background-size: cover;
     background-position: center;
     position: relative;
@@ -198,22 +194,23 @@ img {
     transition: transform 0.3s ease;
 }
 
-.trainer:hover {
+.landing-page .trainer:hover {
     transform: scale(1.05);
 }
 
 /* Sección de Horarios */
-.schedule-section {
+.landing-page .schedule-section {
     padding: 50px 20px;
     text-align: center;
 }
 
-.schedule-table {
+.landing-page .schedule-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.schedule-table th, .schedule-table td {
+.landing-page .schedule-table th, 
+.landing-page .schedule-table td {
     padding: 15px;
     border: 1px solid #444;
     text-align: center;
@@ -222,49 +219,50 @@ img {
 }
 
 /* Sección de Contacto */
-.contact-section {
+.landing-page .contact-section {
     padding: 50px 20px;
     text-align: center;
 }
 
-.contact-flex {
+.landing-page .contact-flex {
     display: flex;
     gap: 20px;
     align-items: center;
     justify-content: center;
 }
 
-.contact-flex form {
+.landing-page .contact-flex form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.contact-flex #map {
+.landing-page .contact-flex #map {
     width: 400px;
     height: 450px;
 }
 
 @media (max-width: 768px) {
-    .nav-links {
+    .landing-page .nav-links {
         flex-direction: column;
         align-items: center;
     }
 
-    .services-grid, .trainers-grid {
+    .landing-page .services-grid, 
+    .landing-page .trainers-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-flex {
+    .landing-page .contact-flex {
         flex-direction: column;
     }
 
-    iframe {
+    .landing-page iframe {
         width: 100%;
     }
 }
 
-footer {
+.landing-page footer {
     background-color: #111;
     text-align: center;
     padding: 20px;
@@ -279,7 +277,8 @@ footer {
         opacity: 1;
     }
 }
-.main-section h1 {
+
+.landing-page .main-section h1 {
     font-size: 7em;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -287,20 +286,20 @@ footer {
     font-weight: bold;
 }
 
-.main-section h1 span {
+.landing-page .main-section h1 span {
     color: yellow;
 }
 
 /* Estilo para los botones */
-.btn {
+.landing-page .btn {
     font-weight: bold;
 }
 
 /* Estilo para los títulos de las secciones */
-.services-section h2,
-.trainers-section h2,
-.schedule-section h2,
-.contact-section h2 {
+.landing-page .services-section h2,
+.landing-page .trainers-section h2,
+.landing-page .schedule-section h2,
+.landing-page .contact-section h2 {
     font-size: 3em;
     color: yellow;
     font-weight: bold;
