@@ -1,4 +1,6 @@
 #navbar{
+    font-family: 'Impact', sans-serif;
+    font-style: italic;
     width: 25vw;
     min-height: 100%;
     background-color: var(--navbar-color);
