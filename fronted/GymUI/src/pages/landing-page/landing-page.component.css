@@ -183,28 +183,52 @@
 /* Sección de Entrenadores */
 .landing-page .trainers-section {
     padding: 50px 20px;
-    text-align: center;
+    width: 100%; /* Asegura que la sección ocupe todo el ancho */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
+/* Grilla de entrenadores */
 .landing-page .trainers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable a pantallas pequeñas */
     gap: 20px;
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra la grilla */
+    text-align: center; /* Centra el contenido dentro de cada elemento */
+    box-sizing: border-box; /* Para asegurar que el padding no exceda el ancho */
 }
 
 .landing-page .trainer {
     background-size: cover;
     background-position: center;
     position: relative;
-    height: 400px;
+    height: 400px; /* Altura para las imágenes de entrenadores */
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease;
 }
-
 .landing-page .trainer:hover {
     transform: scale(1.05);
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    .landing-page .trainers-grid {
+        grid-template-columns: 1fr; /* Pone cada elemento en una fila separada */
+    }
+}
+
+/* Overlay de texto */
+.landing-page .trainer .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    text-transform: uppercase;
+    color: #fff;
 }
 
 /* Sección de Horarios */
@@ -313,4 +337,5 @@
     color: yellow;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 60px;
 }
