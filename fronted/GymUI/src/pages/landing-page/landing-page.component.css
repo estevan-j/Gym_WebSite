@@ -2,7 +2,9 @@
     background-color: #0C1618;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center; /* Asegura que los elementos dentro del header estén centrados verticalmente */
+    padding: 0 20px; /* Ajusta este valor para definir espacio a los lados */
+    height: 100px;
     border-bottom: 2px solid #D1AC00;
     position: fixed; /* Fija el header en la parte superior */
     top: 0;
@@ -21,7 +23,61 @@
     .landing-page .header {
         position: relative; /* Elimina la posición fija en pantallas pequeñas */
         padding-top: 0;
+        flex-direction: column; /* Apilamos los elementos verticalmente */
+        height: auto; /* Permite que la altura se ajuste automáticamente */
+        z-index: 1; /* Asegura que el header no se sobreponga innecesariamente */
     }
+    
+    .landing-page .main-section {
+        padding-top: 0; /* Elimina el espacio superior adicional que se agregaba para el header fijo */
+    }
+
+    .landing-page .header .nav-links {
+        width: 100%; /* Los enlaces ocupan todo el ancho del header */
+        text-align: center; /* Centramos los enlaces de navegación */
+    }
+
+    .landing-page .header .logo a {
+        font-size: 1.5em; /* Ajuste de tamaño para el logo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade un margen inferior */
+    }
+
+    .landing-page .btn {
+        margin-top: 10px; /* Añade un margen superior al botón */
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    .landing-page .header .nav-links a {
+        font-size: 1em; /* Ajuste de tamaño del texto en los enlaces */
+        padding: 10px 0; /* Añade padding superior e inferior */
+    }
+    
+    .landing-page .main-section h1 {
+        font-size: 2.5em; /* Ajuste del tamaño del título */
+    }
+}
+
+/* Ajusta el margen superior de las secciones */
+.landing-page .section {
+    scroll-margin-top: 100px; /* Ajusta este valor según la altura del header */
+}
+
+/* Ejemplo de la clase que puede aplicarse a cada sección */
+#sobre-gymbro {
+    scroll-margin-top: 100px;
+}
+
+#que-ofrecemos {
+    scroll-margin-top: 100px;
+}
+
+/* Añade scroll-margin-top a todas las secciones */
+.landing-page .about-section,
+.landing-page .services-section,
+.landing-page .trainers-section,
+.landing-page .schedule-section,
+.landing-page .contact-section {
+    scroll-margin-top: 100px;
 }
 
 .landing-page .header .logo {
@@ -29,21 +85,29 @@
     color: #FFD700;
     text-transform: uppercase;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.landing-page .nav-links {
+.landing-page .logo a {
+    text-decoration: none; 
+    font-size: 35px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.landing-page .header .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center; /* Asegura que los links de navegación estén centrados verticalmente */
 }
 
-.landing-page .nav-links a {
+.landing-page .header .nav-links a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
     text-transform: uppercase;
     transition: color 0.3s ease;
-    font-weight: bold;
 }
 
 .landing-page .nav-links a:hover {
@@ -228,6 +292,7 @@
     align-items: center;
     transition: transform 0.3s ease;
 }
+
 .landing-page .trainer:hover {
     transform: scale(1.05);
 }
