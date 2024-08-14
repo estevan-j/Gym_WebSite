@@ -133,7 +133,8 @@
 }
 
 .landing-page .btn:hover {
-    background-color: #D1AC00;
+    background-color: #0D3139;
+    color: #D1AC00;
     transform: scale(1.05);
 }
 
@@ -194,7 +195,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.9);
     padding: 20px;
     border-radius: 10px;
 }
@@ -211,7 +212,7 @@
     height: 400px;
     background-size: cover;
     background-position: center;
-    animation: slide 30s infinite;
+    animation: slide 60s infinite;
 }
 
 @keyframes slide {
@@ -289,6 +290,9 @@
     margin: 0 auto; /* Centra la grilla */
     text-align: center; /* Centra el contenido dentro de cada elemento */
     box-sizing: border-box; /* Para asegurar que el padding no exceda el ancho */
+}
+.landing-page .overlay h3 {
+    color: #D1AC00;
 }
 
 .landing-page .trainer {

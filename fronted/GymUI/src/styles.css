@@ -4,8 +4,9 @@
     --green-color: #D1AC00;
     --light-green01-color: #ebd98a;
     --light-greenBtn-color: #0D3139;
-    --white-color: #FAF4D3;
+    --white-color: #0D3139;
     --silver-color: #FAF4D3;
+    color: #FAF4D3;
 }
 
 *{
@@ -51,7 +52,7 @@ form input, form select {
     padding: 8px;
     border-radius: 5px;
     border: 2px solid var(--light-greenBtn-color);
-    color: #000;
+    color: #0D3139;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -96,7 +97,7 @@ form div {
 
 
 option {
-    color: #000;
+    color: #0D3139;
 }
 
 /* Search Seciont */

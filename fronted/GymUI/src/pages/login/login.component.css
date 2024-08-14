@@ -3,11 +3,11 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: black;
+    background-color: #0C1618;
 }
 
 .login-container {
-    background-color: #0c1618;
+    background-color: #0D3139;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -82,10 +82,10 @@ form button {
     background-color: #d1ac00;
     border: none;
     border-radius: 5px;
-    color: black;
+    color: #0C1618;
     font-family: 'Impact', sans-serif;
     font-style: italic;
-    font-weight: bold;
+    
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
