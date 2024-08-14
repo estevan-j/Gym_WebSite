@@ -1,4 +1,6 @@
 .item{
+    font-family: 'Impact', sans-serif;
+    font-style: italic;
     width: 100%;
     padding-left: 25px;
     background-color: var(--green-color);
@@ -31,7 +33,10 @@
     border: none;
     padding: 10px 0;
     font-size: small;
+    font-family: 'Impact', sans-serif;
+    font-style: italic;
     cursor: pointer;
+    color: black;
 }
 
 

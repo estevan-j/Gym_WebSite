@@ -1,4 +1,6 @@
 .search-bar{
+    font-family: 'Impact', sans-serif;
+    font-style: italic;
     height: 35px;
     width: 50%;
     background-color: var(--silver-color);

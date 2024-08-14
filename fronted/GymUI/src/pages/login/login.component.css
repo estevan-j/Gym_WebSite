@@ -34,9 +34,9 @@
 }
 
 h2 {
-    font-family: 'Anton', sans-serif;
+    font-family: 'Impact', sans-serif;
     font-style: italic;
-    color: white;
+    color: #FAF4D3;
     font-size: 36px;
     margin-bottom: 20px;
 }
@@ -48,7 +48,7 @@ form input[type="password"] {
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #d1ac00;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Impact', sans-serif;
     font-size: 16px;
     background-color: #3D474A;
     color: #d1ac00;
@@ -61,17 +61,18 @@ form input[type="password"]::placeholder {
 
 .remember-me {
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
     margin: 10px 0;
 }
 
 .remember-me input {
-    margin-right: 10px;
+    width: 15px;
+    height: 15px;
 }
 
 .remember-me label {
-    font-family: 'Anton', sans-serif;
-    color: white;
+    font-family: 'Impact', sans-serif;
+    color: #FAF4D3;
     font-size: 14px;
 }
 
@@ -82,7 +83,7 @@ form button {
     border: none;
     border-radius: 5px;
     color: black;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Impact', sans-serif;
     font-style: italic;
     font-weight: bold;
     font-size: 16px;
@@ -98,9 +99,9 @@ form button:hover {
 form a {
     display: block;
     margin-top: 20px;
-    color: white;
+    color: #FAF4D3;
     text-align: center;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Impact', sans-serif;
     font-size: 14px;
     text-decoration: none;
 }
@@ -111,7 +112,7 @@ form a:hover {
 
 .error {
     color: red;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Impact', sans-serif;
     text-align: center;
     margin-top: 10px;
 }
