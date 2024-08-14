@@ -1,15 +1,34 @@
 .landing-page .header {
-    background-color: #000;
+    background-color: #0C1618;
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid #D1AC00;
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que el header ocupe todo el ancho de la pantalla */
+    z-index: 1000; /* Coloca el header encima del contenido */
+}
+
+/* Agregar espacio para el contenido cuando el header es fijo */
+.landing-page .main-section {
+    padding-top: 100px; /* Ajusta este valor según la altura del header */
+}
+
+/* Responsividad: Header no fijo en móviles */
+@media (max-width: 768px) {
+    .landing-page .header {
+        position: relative; /* Elimina la posición fija en pantallas pequeñas */
+        padding-top: 0;
+    }
 }
 
 .landing-page .header .logo {
     font-size: 2em;
     color: #FFD700;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .landing-page .nav-links {
@@ -24,6 +43,7 @@
     font-size: 1.2em;
     text-transform: uppercase;
     transition: color 0.3s ease;
+    font-weight: bold;
 }
 
 .landing-page .nav-links a:hover {
